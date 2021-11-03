@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 11:24:58 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/02 11:48:49 by kaittola         ###   ########.fr       */
+/*   Created: 2021/10/28 12:20:19 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/02 11:56:35 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <stdio.h>
 
-void	ft_putstr(char *str)
+int	ft_strlen(char *str);
+
+int		main(void)
 {
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
-	}
+	printf("%d", ft_strlen("This is a string"));
+	return(0);
 }

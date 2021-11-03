@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 11:24:58 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/02 11:48:49 by kaittola         ###   ########.fr       */
+/*   Created: 2021/11/02 11:52:00 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/02 11:53:50 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
+	int	i;
+
+	i = 0;
 	while (*str)
 	{
-		ft_putchar(*str);
+		i++;
 		str++;
 	}
+	return (i);
 }
