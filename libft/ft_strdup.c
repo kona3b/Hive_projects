@@ -6,19 +6,32 @@
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:14:42 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/05 13:14:34 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:25:41 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <string.h>
 
 char	*ft_strdup(char const *src)
 {
 	char	*dst;
+	int		i;
 
-	dst = malloc((ft_strlen(src) + 1) * sizeof(char));
+	i = 0;
+	while (*src)
+	{
+		i++;
+		src++;
+	}
+	dst = (char *) malloc((i + 1) * sizeof(char));
 	if ((dst - 1) == NULL)
 		return (NULL);
-	ft_strcpy(dst, src);
+	while (*src)
+	{
+		*dst = *src;
+		src++;
+		dst++;
+	}
 	return (dst);
 }

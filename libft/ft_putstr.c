@@ -6,17 +6,17 @@
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:11:21 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/05 13:04:42 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:15:29 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr(char const *s)
 {
 	while (*s)
 	{
-		ft_putchar(*s);
+		write(1, s, 1);
 		s++;
 	}
 }
