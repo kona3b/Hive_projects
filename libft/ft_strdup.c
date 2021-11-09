@@ -6,14 +6,14 @@
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:14:42 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/05 15:25:41 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/09 11:04:15 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 
-char	*ft_strdup(char const *src)
+char	*ft_strdup(const char *src)
 {
 	char	*dst;
 	int		i;

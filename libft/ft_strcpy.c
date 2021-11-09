@@ -6,11 +6,11 @@
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:12:11 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/05 14:49:30 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/09 11:03:17 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char const *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int	i;
 
