@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 12:14:42 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/10 12:01:46 by kaittola         ###   ########.fr       */
+/*   Created: 2021/11/10 12:35:25 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/10 12:49:57 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
-
-char	*ft_strdup(const char *src)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	char	*dst;
-	int		i;
-	int		len;
+	int	i;
+	int	j;
 
 	i = 0;
-	len = 0;
-	while (src[i])
-	{
-		len++;
+	j = 0;
+	while (s1[i] != '\0')
 		i++;
-	}
-	dst = (char *) malloc((i + 1) * sizeof(char));
-	if ((dst - 1) == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i])
+	while (s2[j] != '\0')
 	{
-		dst[i] = src[i];
+		s1[i] = s2[j];
 		i++;
+		j++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	s1[i] = '\0';
+	return (s1);
 }

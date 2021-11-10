@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 12:14:42 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/10 12:01:46 by kaittola         ###   ########.fr       */
+/*   Created: 2021/11/10 13:17:20 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/10 16:10:43 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
 
-char	*ft_strdup(const char *src)
+static int	ft_find_str_len(const char *str)
 {
-	char	*dst;
-	int		i;
-	int		len;
+	int	i;
 
 	i = 0;
-	len = 0;
-	while (src[i])
-	{
-		len++;
+	while (*str++)
 		i++;
-	}
-	dst = (char *) malloc((i + 1) * sizeof(char));
-	if ((dst - 1) == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i])
+	return (i);
+}
+
+size_t	ft_strlcat(char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+	size_t	j;
+	size_t	d;
+	size_t	s;
+
+	j = 0;
+	d = ft_find_str_len(s1);
+	s = ft_find_str_len(s2);
+	i = d;
+	while (s2[j] != '\0' && i < (n - 1))
 	{
-		dst[i] = src[i];
+		s1[i] = s2[j];
 		i++;
+		j++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	s1[i] = '\0';
+	return (s + d);
 }

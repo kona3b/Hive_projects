@@ -6,7 +6,7 @@
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 09:21:49 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/09 11:03:30 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/10 13:04:35 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 		dest[i] = '\0';
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }

@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 12:14:42 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/10 12:01:46 by kaittola         ###   ########.fr       */
+/*   Created: 2021/11/10 12:14:51 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/10 12:16:47 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
 
-char	*ft_strdup(const char *src)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*dst;
-	int		i;
-	int		len;
+	unsigned int	i;
 
 	i = 0;
-	len = 0;
-	while (src[i])
-	{
-		len++;
+	while (i <= n && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 		i++;
-	}
-	dst = (char *) malloc((i + 1) * sizeof(char));
-	if ((dst - 1) == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	if (s1[i] == s2[i])
+		return (0);
+	else
+		return (s1[i] - s2[i]);
 }
