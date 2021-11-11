@@ -1,40 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 12:14:42 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/11 14:25:55 by kaittola         ###   ########.fr       */
+/*   Created: 2021/11/11 12:39:34 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/11 14:29:12 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
 
-char	*ft_strdup(const char *src)
+static size_t	ft_find_len(int n)
 {
-	char	*dst;
-	size_t	i;
-	int		len;
+	size_t	len;
+	int		num;
+	int		found;
 
-	i = 0;
-	len = 0;
-	while (src[i])
+	found = 0;
+	len = 11;
+	if (n == -2147483648)
+		return (len + 1);
+	if (n < 0)
 	{
 		len++;
-		i++;
+		n = n * -1;
 	}
-	dst = (char *) malloc((i + 1) * sizeof(*dst));
-	if ((dst - 1) == NULL)
-		return (NULL);
-	i = 0;
-	while (src[i])
+	num = 1000000000;
+	while (num > 9 && found == 0)
 	{
-		dst[i] = src[i];
-		i++;
+		if (n < num)
+		{
+			num = num / 10;
+			len--;
+		}
+		else
+			found = 1;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+
+	str = (char *) malloc(ft_find_len(n) * sizeof(*str));
+	if ((str - 1) == NULL)
+		return (NULL);
+	return (str);
 }

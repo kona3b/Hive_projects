@@ -6,15 +6,15 @@
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:17:20 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/10 16:10:43 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/11 14:46:51 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-static int	ft_find_str_len(const char *str)
+static size_t	ft_find_str_len(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (*str++)

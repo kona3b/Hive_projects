@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 11:47:04 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/11 14:43:59 by kaittola         ###   ########.fr       */
+/*   Created: 2021/11/11 11:31:44 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/11 12:32:25 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-static void	ft_printchar(char c)
+int	ft_atoi(const char *str)
 {
-	write(1, &c, 1);
-}
+	int	m;
+	int	res;
 
-void	ft_putnbr(int n)
-{
-	if (n <= -2147483648)
+	m = 1;
+	res = 0;
+	while (*str == '\t' || *str == '\n' || *str == '\v' || *str == '\f'
+		|| *str == '\r' || *str == ' ')
+		str++;
+	if (*str == '-')
+		m = -1;
+	if (*str == '+' || *str == '-')
+		str++;
+	while (*str && *str >= '0' && *str <= '9')
 	{
-		ft_printchar('-');
-		ft_printchar('2');
-		n = 147483648;
+		res = res * 10 + *str - '0';
+		str++;
 	}
-	if (n < 0)
-	{
-		ft_printchar('-');
-		n *= -1;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	if (n <= 9)
-		ft_printchar((char)n + 48);
+	return (res * m);
 }
