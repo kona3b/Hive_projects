@@ -6,7 +6,7 @@
 /*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 12:39:34 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/11 14:29:12 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/18 11:02:24 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,8 @@ static size_t	ft_find_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_build_str(char *str, int i, int n)
 {
-	char	*str;
-	int		i;
-
-	i = ft_find_len(n);
-	if (!(str = (char *) malloc((i + 1) * sizeof(*str))))
-		return (NULL);
-	str[i--] = '\0';
-	if (n == 0)
-		str[0] = 48;
 	if (n == -2147483648)
 	{
 		str[0] = '-';
@@ -59,5 +50,21 @@ char	*ft_itoa(int n)
 		str[i--] = 48 + (n % 10);
 		n = n / 10;
 	}
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		i;
+
+	i = ft_find_len(n);
+	str = (char *) malloc((i + 1) * sizeof(*str));
+	if ((str - 1) == NULL)
+		return (NULL);
+	str[i--] = '\0';
+	if (n == 0)
+		str[0] = 48;
+	ft_build_str(str, i, n);
 	return (str);
 }
