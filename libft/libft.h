@@ -14,10 +14,13 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 void	ft_putchar(char c);
 void	ft_putstr(const char *s);
 void	ft_putnbr(int n);
+void	ft_bzero(void *s, size_t n);
 char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strdup(const char *src);

@@ -22,7 +22,7 @@ int	main(void)
 	char	*s2 = "This is a string";
 	char	*s3 = "This is a strinddfdsf";
 	char	*str = "-456789";
-	int		nbr = 123456789;
+	int		nbr = -2147483648;
 	char	src[50], dest[50];
 	char	source[] = "These two should be same";
 	char	*target1 = strdup(source);

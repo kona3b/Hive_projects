@@ -10,33 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	ft_find_len(int n)
 {
 	size_t	len;
-	int		num;
-	int		found;
 
-	found = 0;
-	len = 11;
+	len = 0;
 	if (n == -2147483648)
-		return (len + 1);
+		return (11);
 	if (n < 0)
 	{
 		len++;
 		n = n * -1;
 	}
-	num = 1000000000;
-	while (num > 9 && found == 0)
+	while (n > 0)
 	{
-		if (n < num)
-		{
-			num = num / 10;
-			len--;
-		}
-		else
-			found = 1;
+		n = n / 10;
+		len++;
 	}
 	return (len);
 }
@@ -44,9 +35,29 @@ static size_t	ft_find_len(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
+	int		i;
 
-	str = (char *) malloc(ft_find_len(n) * sizeof(*str));
-	if ((str - 1) == NULL)
+	i = ft_find_len(n);
+	if (!(str = (char *) malloc((i + 1) * sizeof(*str))))
 		return (NULL);
+	str[i--] = '\0';
+	if (n == 0)
+		str[0] = 48;
+	if (n == -2147483648)
+	{
+		str[0] = '-';
+		str[1] = '2';
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		str[0] = '-';
+		n = n * -1;
+	}
+	while (n > 0)
+	{
+		str[i--] = 48 + (n % 10);
+		n = n / 10;
+	}
 	return (str);
 }
