@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 12:13:12 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/25 13:36:41 by kaittola         ###   ########.fr       */
+/*   Created: 2021/11/25 13:35:25 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/25 13:37:14 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	ft_memdel(void **ap)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	if (*needle == '\0')
-		return ((char *)haystack);
-	while (haystack[i] != '\0')
+	if (ap != NULL)
 	{
-		j = 0;
-		while (needle[j] == haystack[i + j])
-		{
-			j++;
-			if (needle[j] == '\0')
-				return ((char *)&haystack[i]);
-		}
-		i++;
+		free(*ap);
+		*ap = NULL;
 	}
-	return (0);
 }

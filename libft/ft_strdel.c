@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 12:13:12 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/25 13:36:41 by kaittola         ###   ########.fr       */
+/*   Created: 2021/11/25 13:35:52 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/25 13:36:57 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	ft_strdel(void **as)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	if (*needle == '\0')
-		return ((char *)haystack);
-	while (haystack[i] != '\0')
+	if (as)
 	{
-		j = 0;
-		while (needle[j] == haystack[i + j])
+		if (*as != NULL)
 		{
-			j++;
-			if (needle[j] == '\0')
-				return ((char *)&haystack[i]);
+			free(*as);
+			*as = NULL;
 		}
-		i++;
 	}
-	return (0);
 }

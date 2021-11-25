@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:20:23 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/18 16:35:17 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/25 13:36:32 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
-		c = c- 32;
+		c = c - 32;
 	return (c);
 }

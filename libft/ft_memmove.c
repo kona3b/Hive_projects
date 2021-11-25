@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 13:35:29 by kaittola          #+#    #+#             */
+/*   Updated: 2021/11/25 13:37:11 by kaittola         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
@@ -13,19 +25,15 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (0);
 	if (ptr2 < ptr1)
 	{
-		while (i < len)
-		{
+		while (i++ < len)
 			ptr1[i] = ptr2[i];
-			i++;
-		}
 	}
 	else
 	{
-		while (len > 0)
+		while (len-- > 0)
 		{
 			ptr1[i] = ptr2[i];
 			i++;
-			len--;
 		}
 	}
 	return (dst);
