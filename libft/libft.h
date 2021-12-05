@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 11:22:20 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/18 16:37:01 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/05 20:00:40 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr(const char *s);
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_strclr(char *s);
-void	ft_strdel(void **as);
+void	ft_strdel(char **as);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 

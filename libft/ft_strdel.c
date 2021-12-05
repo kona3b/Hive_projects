@@ -3,23 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:35:52 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/25 13:36:57 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/05 20:00:44 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(void **as)
+void	ft_strdel(char **as)
 {
-	if (as)
-	{
-		if (*as != NULL)
-		{
-			free(*as);
-			*as = NULL;
-		}
-	}
+	free(*as);
+	*as = NULL;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:36:16 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/25 13:36:40 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/05 19:50:26 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	str = (char *) malloc((len + 1) * sizeof(*str));
 	if (!str)
 		return (0);

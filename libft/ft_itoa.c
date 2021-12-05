@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 12:39:34 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/25 13:37:24 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/05 20:08:28 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_itoa(int n)
 	int		i;
 
 	i = ft_find_len(n);
-	str = (char *) malloc((i + 1) * sizeof(*str));
+	str = (char *) malloc((i + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	str[i--] = '\0';

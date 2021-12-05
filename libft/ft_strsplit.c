@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:11:21 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/01 17:11:26 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/05 19:53:19 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	*ft_build_string(int i, const char *s, char c)
 	int		j;
 
 	j = 0;
-	str = (char *) malloc((ft_find_len(i, s, c) + 1) * sizeof(char));
+	str = (char *) malloc((ft_find_len(i, s, c) + 1) * sizeof(*str));
 	if (str - 1 == NULL)
 		return (NULL);
 	while (s[i] != c && s[i] != '\0')
@@ -77,7 +77,7 @@ char	**ft_strsplit(const char *s, char c)
 	if (!s)
 		return (0);
 	w = ft_count_words(s, c);
-	arr = (char **) malloc((w + 1) * sizeof(char *));
+	arr = (char **) malloc((w + 1) * sizeof(**arr));
 	while (x < w)
 	{
 		while (s[i] == c)
