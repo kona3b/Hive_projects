@@ -19,13 +19,13 @@ char	*ft_strrchr(const char *s, int c)
 
 	i = 0;
 	str = (char *)s;
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	while (i >= 0)
 	{
-		if (str[i] == c)
-			return (&str[i]);
-		str--;
+		if (str[i] == (char)c)
+			return (str + i);
+		i--;
 	}
 	return (0);
 }

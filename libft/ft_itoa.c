@@ -60,8 +60,8 @@ char	*ft_itoa(int n)
 
 	i = ft_find_len(n);
 	str = (char *) malloc((i + 1) * sizeof(*str));
-	if ((str - 1) == NULL)
-		return (NULL);
+	if (!str)
+		return (0);
 	str[i--] = '\0';
 	if (n == 0)
 		str[0] = 48;

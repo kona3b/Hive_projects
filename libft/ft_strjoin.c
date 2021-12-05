@@ -12,6 +12,21 @@
 
 #include "libft.h"
 
+static int	ft_find_len(const char *s)
+{
+	int	len;
+	int	i;
+
+	len = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		len++;
+		i++;
+	}
+	return (len);
+}
+
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*str;
@@ -22,15 +37,13 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	len = 0;
 	i = 0;
 	j = 0;
-	while (s1[i++] != '\0')
-		len++;
-	i = 0;
-	while (s2[i++] != '\0')
-		len++;
-	i = 0;
+	if (!s1 || !s2)
+		return (0);
+	len = ft_find_len(s1);
+	len = len + ft_find_len(s2);
 	str = (char *) malloc((len + 1) * sizeof(*str));
-	if ((str - 1) == NULL)
-		return (NULL);
+	if (!str)
+		return (0);
 	while (s1[i] != '\0')
 		str[j++] = s1[i++];
 	i = 0;

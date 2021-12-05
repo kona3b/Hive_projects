@@ -18,8 +18,8 @@ void	*ft_memalloc(size_t size)
 	size_t	i;
 
 	ptr = (char *) malloc(size * sizeof(*ptr));
-	if ((ptr - 1) == NULL)
-		return (NULL);
+	if (!ptr)
+		return (0);
 	i = 0;
 	while (i < size)
 	{

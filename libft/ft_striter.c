@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 13:35:29 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/25 13:37:11 by kaittola         ###   ########.fr       */
+/*   Created: 2021/12/01 17:30:35 by kaittola          #+#    #+#             */
+/*   Updated: 2021/12/01 17:30:56 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	size_t	i;
-
-	i = 0;
-	if (!dst && !src)
-		return (0);
-	if (src < dst)
+	if (!s || !f)
+		return ;
+	while (*s)
 	{
-		while (len > 0)
-		{
-			*((unsigned char *)dst + len - 1)
-				= *((unsigned char *)src + len - 1);
-			len--;
-		}
+		(*f)(s);
+		s++;
 	}
-	else
-	{
-		while (i < len)
-		{
-			*((unsigned char *)dst + i) = *((unsigned char *)src + i);
-			i++;
-		}
-	}
-	return (dst);
 }

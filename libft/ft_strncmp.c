@@ -15,12 +15,13 @@
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	i;
+	unsigned char	*c1;
+	unsigned char	*c2;
 
+	c1 = (unsigned char *)s1;
+	c2 = (unsigned char *)s2;
 	i = 0;
-	while (i <= n && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+	while (i <= n && c1[i] != '\0' && c2[i] != '\0' && c1[i] == c2[i])
 		i++;
-	if (s1[i] == s2[i])
-		return (0);
-	else
-		return (s1[i] - s2[i]);
+	return (c1[i] - c2[i]);
 }

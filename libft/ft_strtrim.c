@@ -26,6 +26,8 @@ static int	ft_find_len(const char *s)
 		i++;
 		len++;
 	}
+	if (len == 0)
+		return (len);
 	while (s[i - 1] == ' ' || s[i - 1] == '\n' || s[i - 1] == '\t')
 	{
 		i--;
@@ -43,10 +45,12 @@ char	*ft_strtrim(const char *s)
 
 	i = 0;
 	j = 0;
+	if (!s)
+		return (0);
 	len = ft_find_len(s);
 	str = (char *) malloc((len + 1) * sizeof(*str));
-	if ((str - 1) == NULL)
-		return (NULL);
+	if (!str)
+		return (0);
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
 	while (j < len)

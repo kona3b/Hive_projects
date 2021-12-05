@@ -19,11 +19,14 @@ void	ft_strclr(char *s)
 
 	i = 0;
 	len = 0;
-	while (*s)
+	if (!s)
+		return ;
+	while (s[i] != '\0')
 	{
-		s++;
+		i++;
 		len++;
 	}
+	i = 0;
 	while (i <= len)
 	{
 		s[i] = '\0';

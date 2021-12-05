@@ -17,6 +17,13 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+char lowerchar(char c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
+}
+
 int	main(void)
 {
 	char	*s1 = "This is a string";
@@ -51,10 +58,12 @@ int	main(void)
 	ft_strcpy(dest, "This is destination");
 	ft_strncat(dest, src, 5);
 	printf("Final destination string : |%s|\n", dest);
-	ft_putstr("Testing ft_putnbr with min and max int\n");
+	ft_putstr("Testing ft_putnbr with min and max int and zero\n");
 	ft_putnbr(-2147483648);
 	write(1, "\n", 1);
 	ft_putnbr(2147483647);
+	write(1, "\n", 1);
+	ft_putnbr(0);
 	write(1, "\n", 1);
 	printf("Testing strcmp and ft_strcmp with matching strings:\n%d, %d\n", strcmp(s1, s2), ft_strcmp(s1, s2));
 	printf("Testing strncmp and ft_strncmp with different strings:\n%d, %d\n", strncmp(s1, s3, 16), ft_strncmp(s1, s3, 16));	
@@ -132,7 +141,7 @@ int	main(void)
 	printf("Result of tolower when c is: %c: %c\n", c, tolower(c));
 	printf("Result of ft_tolower when c is: %c: %c\n", c, ft_tolower(c));
 	ft_putendl("This should be printed, followed by a new line");
-	printf("%s\n", ft_strtrim("       This was trimmed with ft_strtrim  \t  "));
+	printf("%s\n", ft_strtrim("       This was,  trimmed. with ft_strtrim  \t  "));
 	printf("%s\n", ft_strjoin(s1, str));
 	printf("%s\n", ft_strsub("This is a test string", 10, 4));
 	char str6[50];
@@ -160,17 +169,17 @@ int	main(void)
 	*pdest2 = '\0';
 	printf("Result: %s\n", buffer2);
 	printf("Length: %lu characters\n", strlen(buffer2));
-	char dest8[] = "oldstring";
+	char dest8[] = "olkkkkkkdword09";
 	const char src8[]  = "newstring";
 	printf("Before memmove dest = %s, src = %s\n", dest8, src8);
 	memmove(dest8, src8, 9);
 	printf("After memmove dest = %s, src = %s\n", dest8, src8);
-	char dest9[] = "oldstring";
+	char dest9[] = "olkkkkkkdword09";
 	const char src9[]  = "newstring";
 	printf("Before ft_memmove dest = %s, src = %s\n", dest9, src9);
 	ft_memmove(dest9, src9, 9);
 	printf("After ft_memmove dest = %s, src = %s\n", dest9, src9);
-	const char str10[] = "http://www.tutorialspoint.com";
+	const char str10[] = "This is a dot . This comes after";
 	const char ch10 = '.';
 	char *ret10;
 	ret10 = ft_memchr(str10, ch10, strlen(str10));
@@ -188,5 +197,18 @@ int	main(void)
 	else
 	   printf("str11 is equal to str12\n");
 	printf("%i\n", ret11);
+	char	*ptr0;
+	char	**new;
+
+	ptr0 = "!!!!!This!is!!!!a!!test!string!!!!!";
+
+	new = (ft_strsplit(ptr0, '!'));
+	printf("Testing strsplit:\n%s\n%s\n%s\n%s\n%s\n" , new[0], new[1], new[2], new[3], new[4]);
+	char	*str13 = "ABC";
+	char	(*ptrf)(char);
+	ptrf = &lowerchar;
+	char	*str14 = ft_strmap(str13, ptrf);
+	printf("String before ft_strmap: %s\n", str13);
+	printf("String after ft_strmap: %s\n", str14);
 	return (0);
 }

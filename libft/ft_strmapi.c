@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 13:35:29 by kaittola          #+#    #+#             */
-/*   Updated: 2021/11/25 13:37:11 by kaittola         ###   ########.fr       */
+/*   Created: 2021/12/01 17:31:20 by kaittola          #+#    #+#             */
+/*   Updated: 2021/12/01 17:31:21 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	int		len;
+	int		i;
+	char	*ret;
 
+	len = 0;
 	i = 0;
-	if (!dst && !src)
+	if (!s || !f)
 		return (0);
-	if (src < dst)
+	while (s[i] != '\0')
 	{
-		while (len > 0)
-		{
-			*((unsigned char *)dst + len - 1)
-				= *((unsigned char *)src + len - 1);
-			len--;
-		}
+		len++;
+		i++;
 	}
-	else
+	i = 0;
+	ret = (char *) malloc((len + 1) * sizeof(char));
+	if (!ret)
+		return (0);
+	while (s[i] != '\0')
 	{
-		while (i < len)
-		{
-			*((unsigned char *)dst + i) = *((unsigned char *)src + i);
-			i++;
-		}
+		ret[i] = f(i, s[i]);
+		i++;
 	}
-	return (dst);
+	ret[i] = '\0';
+	return (ret);
 }

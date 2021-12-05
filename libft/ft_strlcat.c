@@ -17,7 +17,7 @@ static size_t	ft_find_str_len(const char *str)
 	size_t	i;
 
 	i = 0;
-	while (*str++)
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
