@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 11:22:20 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/05 20:00:40 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/07 13:50:48 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int		ft_strnequ(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 size_t	ft_strlcat(char *s1, const char *s2, size_t n);
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list	*ft_lstnew(const void *content, size_t content_size);
 void	*ft_memalloc(size_t size);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -63,6 +65,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
+void	ft_lstadd(t_list **alst, t_list *new);
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void	ft_memdel(void **ap);
 void	ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);

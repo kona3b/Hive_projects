@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static int	ft_find_len(const char *s)
+static size_t	ft_find_len(const char *s)
 {
-	int	len;
-	int	i;
+	size_t	len;
+	int		i;
 
 	len = 0;
 	i = 0;
@@ -40,7 +40,7 @@ char	*ft_strtrim(const char *s)
 {
 	int		i;
 	int		j;
-	int		len;
+	size_t	len;
 	char	*str;
 
 	i = 0;
@@ -53,7 +53,7 @@ char	*ft_strtrim(const char *s)
 		return (0);
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
-	while (j < len)
+	while (len-- > 0)
 	{
 		str[j] = s[i];
 		i++;

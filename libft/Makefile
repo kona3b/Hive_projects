@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: konsta <konsta@student.42.fr>              +#+  +:+       +#+         #
+#    By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 10:52:43 by kaittola          #+#    #+#              #
-#    Updated: 2021/11/25 13:12:08 by konsta           ###   ########.fr        #
+#    Updated: 2021/12/07 13:50:38 by kaittola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,12 @@ SRC += ft_isascii.c
 SRC += ft_isdigit.c
 SRC += ft_isprint.c
 SRC += ft_itoa.c
+SRC += ft_lstadd.c
+SRC += ft_lstdel.c
+SRC += ft_lstdelone.c
+SRC += ft_lstiter.c
+SRC += ft_lstmap.c
+SRC += ft_lstnew.c
 SRC += ft_memalloc.c
 SRC += ft_memccpy.c
 SRC += ft_memchr.c
@@ -65,7 +71,7 @@ SRC += ft_strtrim.c
 SRC += ft_tolower.c
 SRC += ft_toupper.c
 
-OBJ = $(SRC:.c=.o) 
+OBJ = $(SRC:.c=.o)
 
 .PHONY: all clean fclean re
 

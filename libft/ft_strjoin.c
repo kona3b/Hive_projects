@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static int	ft_find_len(const char *s)
+static size_t	ft_find_len(const char *s)
 {
-	int	len;
-	int	i;
+	size_t	len;
+	int		i;
 
 	len = 0;
 	i = 0;
@@ -30,7 +30,7 @@ static int	ft_find_len(const char *s)
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*str;
-	int		len;
+	size_t	len;
 	int		i;
 	int		j;
 

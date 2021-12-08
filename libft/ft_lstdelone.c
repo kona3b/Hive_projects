@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 17:30:40 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/01 17:30:58 by kaittola         ###   ########.fr       */
+/*   Created: 2021/12/07 13:46:48 by kaittola          #+#    #+#             */
+/*   Updated: 2021/12/07 13:46:55 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	unsigned int	i;
+	t_list	*link_del;
 
-	i = 0;
-	if (!s || !f)
-		return ;
-	while (s[i] != '\0')
-	{
-		(*f)(i, &s[i]);
-		i++;
-	}
+	link_del = *alst;
+	(*del)(link_del->content, link_del->content_size);
+	if (*alst != link_del->next)
+		free (*alst);
+	*alst = NULL;
 }

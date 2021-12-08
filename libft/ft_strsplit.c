@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static int	ft_count_words(const char *s, char c)
+static size_t	ft_count_words(const char *s, char c)
 {
-	int	w;
-	int	i;
+	size_t	w;
+	int		i;
 
 	w = 0;
 	i = 0;
@@ -33,42 +33,37 @@ static int	ft_count_words(const char *s, char c)
 	return (w);
 }
 
-static int	ft_find_len(int i, const char *s, char c)
+static char	*ft_build_string(int i, const char *s, char c)
 {
-	int	len;
+	char	*str;
+	size_t	len;
+	int		j;
 
 	len = 0;
+	j = 0;
 	while (s[i] != c && s[i] != '\0')
 	{
 		len++;
 		i++;
 	}
-	return (len);
-}
-
-static char	*ft_build_string(int i, const char *s, char c)
-{
-	char	*str;
-	int		j;
-
-	j = 0;
-	str = (char *) malloc((ft_find_len(i, s, c) + 1) * sizeof(*str));
-	if (str - 1 == NULL)
-		return (NULL);
+	str = (char *) malloc((len + 1) * sizeof(*str));
+	if (!str)
+		return (0);
+	i = i - (int)len;
 	while (s[i] != c && s[i] != '\0')
 	{
 		str[j] = s[i];
 		i++;
 		j++;
 	}
-	str[i] = '\0';
+	str[j] = '\0';
 	return (str);
 }
 
 char	**ft_strsplit(const char *s, char c)
 {
 	char	**arr;
-	int		w;
+	size_t	w;
 	int		x;
 	int		i;
 
@@ -77,8 +72,10 @@ char	**ft_strsplit(const char *s, char c)
 	if (!s)
 		return (0);
 	w = ft_count_words(s, c);
-	arr = (char **) malloc((w + 1) * sizeof(**arr));
-	while (x < w)
+	arr = (char **) malloc((w + 1) * sizeof(char *));
+	if (!arr)
+		return (0);
+	while (w-- > 0)
 	{
 		while (s[i] == c)
 			i++;

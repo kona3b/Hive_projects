@@ -19,6 +19,8 @@ static size_t	ft_find_len(int n)
 	len = 0;
 	if (n == -2147483648)
 		return (11);
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		len++;
@@ -32,7 +34,7 @@ static size_t	ft_find_len(int n)
 	return (len);
 }
 
-static char	*ft_build_str(char *str, int i, int n)
+static char	*ft_build_str(char *str, size_t i, int n)
 {
 	if (n == -2147483648)
 	{
@@ -56,15 +58,17 @@ static char	*ft_build_str(char *str, int i, int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	i = ft_find_len(n);
 	str = (char *) malloc((i + 1) * sizeof(char));
 	if (!str)
 		return (0);
-	str[i--] = '\0';
+	str[i] = '\0';
+	i--;
 	if (n == 0)
 		str[0] = 48;
-	ft_build_str(str, i, n);
+	else
+		ft_build_str(str, i, n);
 	return (str);
 }

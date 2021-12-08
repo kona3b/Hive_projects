@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 17:30:40 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/01 17:30:58 by kaittola         ###   ########.fr       */
+/*   Created: 2021/12/07 13:46:19 by kaittola          #+#    #+#             */
+/*   Updated: 2021/12/07 13:46:26 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	unsigned int	i;
+	t_list	*old_head;
+	t_list	*new_head;
 
-	i = 0;
-	if (!s || !f)
-		return ;
-	while (s[i] != '\0')
-	{
-		(*f)(i, &s[i]);
-		i++;
-	}
+	old_head = *alst;
+	new_head = new;
+	new_head->next = *alst;
+	*alst = new_head;
 }
