@@ -6,7 +6,7 @@
 /*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:11:21 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/05 19:53:19 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:02:56 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,28 +60,36 @@ static char	*ft_build_string(int i, const char *s, char c)
 	return (str);
 }
 
+char	**ft_freeall(int i, char **arr)
+{
+	while (i > 0)
+		free(arr[--i]);
+	free(arr);
+	return (0);
+}
+
 char	**ft_strsplit(const char *s, char c)
 {
 	char	**arr;
-	size_t	w;
-	int		x;
+	size_t	x;
 	int		i;
 
 	i = 0;
 	x = 0;
 	if (!s)
 		return (0);
-	w = ft_count_words(s, c);
-	arr = (char **) malloc((w + 1) * sizeof(char *));
+	arr = (char **) malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (0);
-	while (w-- > 0)
+	while (ft_count_words(s, c) > x)
 	{
 		while (s[i] == c)
 			i++;
 		arr[x] = ft_build_string(i, s, c);
+		if (!arr[x])
+			return (ft_freeall(x, arr));
 		x++;
-		while (s[i] != c)
+		while (s[i] != c && s[i] != '\0')
 			i++;
 	}
 	arr[x] = 0;
