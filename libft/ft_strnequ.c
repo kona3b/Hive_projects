@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 12:14:51 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/08 13:44:54 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/09 14:37:05 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_strnequ(const char *s1, const char *s2, size_t n)
 {

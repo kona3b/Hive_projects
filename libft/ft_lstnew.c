@@ -6,7 +6,7 @@
 /*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 13:47:30 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/08 14:21:52 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/09 14:31:17 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_list	*ft_lstnew(const void *content, size_t content_size)
 		newlink->content = ft_memalloc(content_size);
 		if (!newlink->content)
 		{
-			ft_lstdel(&newlink, &ft_bzero);
+			free(newlink);
 			return (NULL);
 		}
 		ft_memcpy(newlink->content, content, content_size);
