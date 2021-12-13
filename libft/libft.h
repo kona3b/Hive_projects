@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 11:22:20 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/09 14:29:17 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/13 23:02:51 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ char	**ft_strsplit(const char *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strcpy(char *dest, const char *src);
+char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strdup(const char *src);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strncat(char *s1, const char *s2, size_t n);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
+char	*ft_strncpy(char *dst, const char *src, size_t n);
 char	*ft_strnew(size_t size);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char	*ft_strrchr(const char *s, int c);
@@ -55,7 +55,7 @@ int		ft_strnequ(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 size_t	ft_strlcat(char *s1, const char *s2, size_t n);
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *s);
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list	*ft_lstnew(const void *content, size_t content_size);
 void	*ft_memalloc(size_t size);

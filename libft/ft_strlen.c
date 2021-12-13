@@ -6,21 +6,21 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:13:10 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/09 14:55:28 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/13 22:58:55 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (*str)
+	while (*s)
 	{
 		i++;
-		str++;
+		s++;
 	}
 	return (i);
 }
