@@ -30,7 +30,7 @@ int	main(void)
 	char	*s2 = "This is a string";
 	char	*s3 = "This is a strinddfdsf";
 	char	*s4 = "str";
-	char	*str = "-456789";
+	char	*str = "-2147483648";
 	int		nbr = -2147483648;
 	char	src[50], dest[50];
 	char	source[] = "These two should be same";
@@ -67,10 +67,21 @@ int	main(void)
 	write(1, "\n", 1);
 	printf("Testing strcmp and ft_strcmp with matching strings:\n%d, %d\n", strcmp(s1, s2), ft_strcmp(s1, s2));
 	printf("Testing strncmp and ft_strncmp with different strings:\n%d, %d\n", strncmp(s1, s3, 16), ft_strncmp(s1, s3, 16));	
+	printf("Testing strcmp and ft_strcmp with cba and abc strings:\n%d, %d\n", strcmp(s1, s2), ft_strcmp(s1, s2));
+	printf("Testing strncmp and ft_strncmp with cba and abc strings:\n%d, %d\n", strncmp("cba", "abc", 2), ft_strncmp("cba", "abc", 2));	
 	printf("Testing ft_strequ with matching strings: %d\n", ft_strequ(s1, s2));
 	printf("Testing ft_strequ with different strings: %d\n", ft_strnequ(s1, s3, 16));
 	printf("Testing ft_atoi, the string is %s and the int is %i\n", str, ft_atoi(str));
+	printf("Testing ft_atoi, the string is 9223372036854775807 and the int is %i\n", ft_atoi("9223372036854775807"));
+	printf("Testing ft_atoi, the string is -9223372036854775808 and the int is %i\n", ft_atoi("-9223372036854775808"));
+	printf("Testing ft_atoi, the string is 922337203685477580911 and the int is %i\n", ft_atoi("922337203685477580911"));
+	printf("Testing ft_atoi, the string is -922337203685477580911 and the int is %i\n", ft_atoi("-922337203685477580911"));
+
 	printf("Testing atoi, the string is %s and the int is %i\n", str, atoi(str));
+	printf("Testing atoi, the string is 9223372036854775807 and the int is %i\n", atoi("9223372036854775807"));
+	printf("Testing atoi, the string is -9223372036854775808 and the int is %i\n", atoi("-9223372036854775808"));
+	printf("Testing atoi, the string is 922337203685477580911 and the int is %i\n", atoi("922337203685477580911"));
+	printf("Testing atoi, the string is -922337203685477580911 and the int is %i\n", atoi("-922337203685477580911"));
 	printf("Testing ft_itoa, the int is %i and the string is %s\n", nbr, ft_itoa(nbr));
 	printf("String after using ft_strchr searching for |%c| is |%s|\n", ch, ft_strchr(source, ch));
 	printf("String after using ft_strrchr searching for |%c| is |%s|\n", ch, ft_strrchr(source, ch));

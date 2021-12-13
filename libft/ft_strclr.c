@@ -6,9 +6,11 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:35:47 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/09 14:55:45 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/11/25 13:37:00 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_strclr(char *s)
 {

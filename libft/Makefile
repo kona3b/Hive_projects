@@ -6,7 +6,7 @@
 #    By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 10:52:43 by kaittola          #+#    #+#              #
-#    Updated: 2021/12/07 13:50:38 by kaittola         ###   ########.fr        #
+#    Updated: 2021/12/13 14:55:16 by kaittola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,11 +77,9 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): compile
-	ar rc $(NAME) $(OBJ)
-
-compile:
+$(NAME):
 	gcc -Wall -Wextra -Werror -c -I. $(SRC)
+	ar rcs $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)

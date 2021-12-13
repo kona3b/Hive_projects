@@ -6,9 +6,11 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:30:40 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/09 14:55:34 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:30:58 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {

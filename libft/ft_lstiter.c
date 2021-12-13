@@ -17,6 +17,8 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 	t_list	*current;
 	t_list	*next;
 
+	if (!lst)
+		return ;
 	current = lst;
 	next = lst->next;
 	while (current != NULL)

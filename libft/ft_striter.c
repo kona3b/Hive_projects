@@ -6,9 +6,11 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:30:35 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/09 14:55:36 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:30:56 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_striter(char *s, void (*f)(char *))
 {

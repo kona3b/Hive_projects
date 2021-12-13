@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 13:47:11 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/09 14:56:07 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:22:02 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,26 @@
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*start;
-	t_list	*current;
-	t_list	*lst_current;
+	t_list	*new;
+	t_list	*tmp;
 
-	start = (*f)(lst);
-	if (lst->next != NULL)
-		start->next = (*f)(lst->next);
-	else
-		return (start);
-	current = start->next;
-	lst_current = lst->next;
-	while (lst_current->next != NULL)
+	if (!lst)
+		return (0);
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new = f(lst);
+	tmp = new;
+	while (lst->next != NULL)
 	{
-		current->next = (*f)(lst_current->next);
-		if (!current->next)
+		new->next = f(lst->next);
+		if (!(new->next))
 		{
-			ft_lstdel(&start, &ft_bzero);
+			free(new);
 			return (NULL);
 		}
-		current = current->next;
-		lst_current = lst_current->next;
+		lst = lst->next;
+		new = new->next;
 	}
-	current->next = NULL;
-	return (start);
+	return (tmp);
 }
