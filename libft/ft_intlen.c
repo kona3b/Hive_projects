@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 13:46:48 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/14 11:39:38 by kaittola         ###   ########.fr       */
+/*   Created: 2021/12/14 12:19:18 by kaittola          #+#    #+#             */
+/*   Updated: 2021/12/14 12:19:37 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+int	ft_intlen(int n)
 {
-	t_list	*link_del;
+	int	len;
 
-	link_del = *alst;
-	(*del)(link_del->content, link_del->content_size);
-	if (*alst != link_del->next)
-		free(*alst);
-	*alst = NULL;
+	len = 0;
+	if (n < 0)
+		len = 1;
+	if (n == 0)
+		len = 1;
+	while (n != 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaittola <kaittola@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:11:21 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/08 14:02:56 by kaittola         ###   ########.fr       */
+/*   Updated: 2021/12/14 09:59:51 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static char	*ft_build_string(int i, const char *s, char c)
 	return (str);
 }
 
-char	**ft_freeall(size_t i, char **arr)
+static char	**ft_freeall(size_t i, char **arr)
 {
 	while (i > 0)
 		free(arr[--i]);
