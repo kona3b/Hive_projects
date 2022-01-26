@@ -6,7 +6,7 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:16:48 by kaittola          #+#    #+#             */
-/*   Updated: 2022/01/26 01:34:53 by kaittola         ###   ########.fr       */
+/*   Updated: 2022/01/26 14:35:18 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ static int	ft_reader(const int fd, char **line, char *tmp, char **output)
 	{
 		read_ret = read(fd, buf, BUFF_SIZE);
 		if (read_ret < 0)
+		{
+			ft_strdel(&tmp);
 			return (-1);
+		}
 		buf[read_ret] = '\0';
 		ft_strdel(&output[fd]);
 		output[fd] = ft_strjoin(tmp, buf);
@@ -92,6 +95,7 @@ int	get_next_line(const int fd, char **line)
 		return (-1);
 	if (output[fd] != NULL)
 	{
+		ft_strdel(&tmp);
 		tmp = ft_strdup(output[fd]);
 		if (ft_strchr(output[fd], '\n'))
 			return (ft_leftovers(fd, line, tmp, output));

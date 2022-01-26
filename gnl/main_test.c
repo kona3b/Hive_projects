@@ -29,7 +29,5 @@ int main(int argc, char const *argv[])
         free(line);
         ++lines;
     }
-
-    free(line);
     printf("\nTotal lines: %d, Total time: %f\n", lines, timer);
 }
