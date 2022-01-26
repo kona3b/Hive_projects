@@ -6,7 +6,7 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:16:48 by kaittola          #+#    #+#             */
-/*   Updated: 2022/01/21 13:39:26 by kaittola         ###   ########.fr       */
+/*   Updated: 2022/01/26 01:34:53 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_outputter(const int fd, char **line, char **output)
 	i = 0;
 	while (output[fd][i] != '\n' && output[fd][i] != '\0')
 		i++;
-	if (i == 0)
+	if (i == 0 && output[fd][i] == '\0')
 		return (0);
 	if (output[fd][i] == '\n')
 	{
@@ -62,6 +62,8 @@ static int	ft_reader(const int fd, char **line, char *tmp, char **output)
 			break ;
 	}
 	ft_strdel(&tmp);
+	if (!output[fd])
+		return (0);
 	return (ft_outputter(fd, line, output));
 }
 
@@ -83,16 +85,16 @@ int	get_next_line(const int fd, char **line)
 	static char	*output[FD_SIZE];
 	char		*tmp;
 
+	if (fd < 0 || fd > FD_SIZE || !line || BUFF_SIZE == 0)
+		return (-1);
 	tmp = ft_strnew(BUFF_SIZE);
-	if (fd < 0 || fd > FD_SIZE || !line || BUFF_SIZE == 0 || !tmp)
+	if (!tmp)
 		return (-1);
 	if (output[fd] != NULL)
 	{
 		tmp = ft_strdup(output[fd]);
 		if (ft_strchr(output[fd], '\n'))
 			return (ft_leftovers(fd, line, tmp, output));
-		else
-			return (ft_reader(fd, line, tmp, output));
 	}
 	return (ft_reader(fd, line, tmp, output));
 }

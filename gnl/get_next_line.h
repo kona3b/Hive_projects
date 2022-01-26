@@ -6,7 +6,7 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 14:55:49 by kaittola          #+#    #+#             */
-/*   Updated: 2022/01/21 13:46:42 by kaittola         ###   ########.fr       */
+/*   Updated: 2022/01/26 02:05:44 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft/libft.h"
 
 # define BUFF_SIZE 16
-# define FD_SIZE 1000000
+# define FD_SIZE 8192
 
 int	get_next_line(const int fd, char **line);
 
