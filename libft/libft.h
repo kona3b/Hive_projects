@@ -6,7 +6,7 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 11:22:20 by kaittola          #+#    #+#             */
-/*   Updated: 2021/12/14 12:27:06 by kaittola         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:51:19 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*ft_strstr(const char *haystack, const char *needle);
 char	*ft_strsub(const char *s, unsigned int start, size_t len);
 char	*ft_strtrim(const char *s);
 int		ft_atoi(const char *str);
+size_t	ft_count_c(const char *str, int c);
 int		ft_intlen(int n);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

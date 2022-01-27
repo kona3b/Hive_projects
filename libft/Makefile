@@ -6,7 +6,7 @@
 #    By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 10:52:43 by kaittola          #+#    #+#              #
-#    Updated: 2021/12/13 14:55:16 by kaittola         ###   ########.fr        #
+#    Updated: 2022/01/27 19:07:57 by kaittola         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libft.a
 
 SRC = ft_atoi.c
 SRC += ft_bzero.c
+SRC += ft_count_c.c
 SRC += ft_isalnum.c
 SRC += ft_isalpha.c
 SRC += ft_isascii.c
@@ -70,6 +71,7 @@ SRC += ft_strsub.c
 SRC += ft_strtrim.c
 SRC += ft_tolower.c
 SRC += ft_toupper.c
+SRC += get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 
