@@ -6,7 +6,7 @@
 /*   By: jniemine <jniemine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 21:01:58 by jniemine          #+#    #+#             */
-/*   Updated: 2022/03/08 18:09:44 by jniemine         ###   ########.fr       */
+/*   Updated: 2022/03/10 23:41:46 by jniemine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*create_array(int size)
 	i = 0;
 	board = (char *)ft_memalloc(sizeof(*board) * (size * size) + size + 1);
 	if (board == NULL)
-		_exit(-1);
+		exit(-1);
 	ft_bzero(board, sizeof(*board) * size * size + size);
 	ft_memset(board, '.', sizeof(*board) * size * size + size);
 	while (i * (size + 1) < size * size + size)
@@ -44,7 +44,7 @@ void	printer(int size, t_tetri **tm)
 		start = (*tm)->y * (size + 1) + (*tm)->x;
 		while (i / 4 < (*tm)->height)
 		{
-			if (is_on((*tm)->bitfield[i / 4], 31 - (i % 4)))
+			if (is_on((*tm)->bf[i / 4], 31 - (i % 4)))
 				board[start + (i / 4 * (size + 1)) + (i % 4)] = (*tm)->symbol;
 			++i;
 		}
@@ -76,19 +76,19 @@ int	parse_input(char **argv, int argc, t_tetri **tm)
 	if (argc != 2)
 	{
 		ft_putstr("Usage: ./fillit argument\n");
-		_exit (0);
+		exit (0);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
 		ft_putstr("error\n");
-		_exit (-1);
+		exit (-1);
 	}
 	bytes = read(fd, buff, 26 * 21);
 	if (bytes < 0 || check_blocks(buff, bytes, 0) != 1)
 	{
 		ft_putstr("error\n");
-		_exit (-1);
+		exit (-1);
 	}
 	close (fd);
 	char_to_bit(buff, bytes, tm);
@@ -110,7 +110,7 @@ int	main(int argc, char **argv)
 	size = 2;
 	while (size * size < block_n * 4)
 		++size;
-	while (solve_it(bit_board, tetriminos, size) != 1)
+	while (solve_it(bit_board, tetriminos, size, 0) != 1)
 	{
 		i = 0;
 		++size;
