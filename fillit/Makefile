@@ -6,7 +6,7 @@
 #    By: jniemine <jniemine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 13:06:54 by jniemine          #+#    #+#              #
-#    Updated: 2022/03/14 10:35:08 by jniemine         ###   ########.fr        #
+#    Updated: 2022/03/18 15:09:51 by jniemine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fillit
 CFLAG = -Wall -Wextra -Werror
 
 INCLUDES =	-I./srcs/			\
-			-I./libft/includes/
+			-I./libft/
 
 SRCS =	srcs/parser_extras.c\
 		srcs/main.c			\
@@ -40,7 +40,7 @@ OBJ =	parser_extras.o	\
 		ft_memset.o		\
 
 $(NAME):
-	@gcc -c ${SRCS} ${INCLUDES} 
+	@gcc -c ${CFLAG} ${SRCS} ${INCLUDES} 
 	@gcc ${OBJ} -o ${NAME}
 
 all: $(NAME)

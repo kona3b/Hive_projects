@@ -6,14 +6,14 @@
 /*   By: jniemine <jniemine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 10:28:13 by jniemine          #+#    #+#             */
-/*   Updated: 2022/03/14 10:35:52 by jniemine         ###   ########.fr       */
+/*   Updated: 2022/03/18 15:10:52 by jniemine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include "../libft/includes/libft.h"
+# include "libft.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -35,10 +35,9 @@ struct s_tetrimino
 	t_tetri			*prev_same;
 };
 
+int				parse_input(char **argv, int argc, t_tetri **tm);
 void			printer(int size, t_tetri **tm);
-void			free_tetri(t_tetri **tm);
 void			char_to_bit(char *buff, int bytes, t_tetri **tetriminos);
-int				check_blocks(char *blocks, int bytes, int i);
 int				solve_it(unsigned int *bb, t_tetri **tm, int size, int i);
 
 #endif
