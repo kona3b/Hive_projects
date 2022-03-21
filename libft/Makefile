@@ -12,6 +12,8 @@
 
 NAME = libft.a
 
+FLAGS = -Wall -Wextra -Werror -c -I.
+
 SRC = ft_atoi.c
 SRC += ft_bzero.c
 SRC += ft_count_c.c
@@ -79,14 +81,14 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
-	gcc -Wall -Wextra -Werror -c -I. $(SRC)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(SRC)
+	@gcc $(FLAGS) $(SRC)
+	@ar rcs $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all

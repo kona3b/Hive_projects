@@ -6,12 +6,15 @@
 /*   By: kaittola <kaittola@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 11:22:20 by kaittola          #+#    #+#             */
-/*   Updated: 2022/02/08 02:07:38 by kaittola         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:51:19 by kaittola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define BUFF_SIZE 16
+# define FD_SIZE 8192
 
 # include <string.h>
 # include <stdlib.h>
@@ -57,6 +60,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_strnequ(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+int		get_next_line(const int fd, char **line);
 size_t	ft_strlcat(char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 size_t	ft_strnlen(const char *s, size_t maxlen);
@@ -88,4 +92,5 @@ void	ft_strclr(char *s);
 void	ft_strdel(char **as);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
 #endif
