@@ -1,0 +1,5 @@
+(a)
+ifconfig | awk '/broadcast/ {print $6}'
+
+(b)
+
