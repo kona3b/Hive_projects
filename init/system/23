@@ -1,0 +1,3 @@
+#Explain how connect yourself as new user. (With graphic session and ssh session)
+In graphic session: Login with username and password when asked for
+In ssh session: ssh "username"@127.0.0.1 -p 2222

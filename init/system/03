@@ -1,0 +1,3 @@
+#What file has to be modified to make it permanent?
+#replace old hostname with new one, you need sudo privilages.
+/etc/hosts
