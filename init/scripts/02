@@ -13,18 +13,19 @@ read username
 echo ""
 
 
-check=$(users | grep $username)
+check=$(getent passwd {1000..60000} | cut -d : -f 1 | grep -w $username)
 if [ "$username" == "exit" ]; then
-	echo "Exiting, bye!"
-	exit 1
+		echo "Exiting, bye!"
+		exit 1
 fi
 if [ "$check" != "$NULL" ]; then
-	if [ "$check" == "$me" ]; then
-		echo "You can't delete yourself, choose another user next time"
-	else
-		sudo userdel -r $username
-		echo "User deleted"
-	fi
+		if [ "$check" == "$me" ]; then
+			echo "You can't delete yourself, choose another user next time"
+		else
+			sudo kill -9 $(pgrep -u $username)
+			sudo userdel -r $username
+			echo "User deleted"
+		fi
 else
 	echo "User doesn't exist"
 fi
