@@ -73,15 +73,243 @@ On_IPurple='\033[0;105m'  # Purple
 On_ICyan='\033[0;106m'    # Cyan
 On_IWhite='\033[0;107m'   # White
 
-echo -e ""
-echo -e ""
+clear
+
+echo
+echo
 echo -e "-:-:-:-:-:-:-:-"
 echo -e "|   ${BIRed}WELCOME${Color_Off}   |"
-echo -e "|     ${BIRed}TO${Color_Off}      |"
+echo -e "|      ${BIRed}TO${Color_Off}     |"
 echo -e "|     ${BIRed}THE${Color_Off}     |"
-echo -e "|    ${BIRed}TESTER${Color_Off}   |"
+echo -e "|   ${BIRed}Script03${Color_Off}  |"
+echo -e "|     ${BIBlack}AKA${Color_Off}     |"
+echo -e "|  ${BIRed}The tester${Color_Off} |"
 echo -e "-:-:-:-:-:-:-:-"
-echo -e ""
-echo -e ""
-echo -e "${BIPurple}Choose your destiny!${Color_Off}"
+echo
+echo
+echo -e "${BIPurple}Choose what to test!${Color_Off}"
+echo
+echo -e "${Purple}(Type the name of the section to run all"
+echo -e "${Purple}or a single number of a question to see answer)"
+echo
+echo -e "${Yellow}Network"
+echo -e "01  02a  02b  03  04  05  06  07"
+echo -e "08  09   10   11  12  13  15${Color_Off}"
+echo
+echo
+echo -e "${Green}System"
+echo -e "01  02  03  04  05  06  07  08  09  10  11  12"
+echo -e "13  14  15  16  17  18  19  20  21  22  23  24${Color_Off}"
+echo
+echo -e "${UCyan}Type exit to exit${Color_Off}"
+echo
 
+while :
+do
+read  -p "Type here: " selected
+if [ "$selected" == "exit" ]; then
+	echo
+	echo -e "${UCyan}Sad to see you go, bye!${Color_Off}"
+	echo
+	exit 1
+else
+	if [ "$selected" == "Network" ] || [ "$selected" == "network" ]; then
+		echo
+		echo -e "${BYellow}Network selected!${Color_Off}"
+		echo
+	else
+		if [ "$selected" == "System" ] || [ "$selected" == "system" ]; then
+			echo
+			echo -e "${BGreen}System selected!${Color_Off}"
+			echo
+		else
+			echo
+			echo -e "${Red}Invalid command, try again!${Color_Off}"
+			echo
+		fi
+	fi
+fi
+case "$selected" in
+
+"Network" | "network" )
+echo -e "${Yellow}01"
+cat ../network/01
+echo
+echo
+echo -e "02a"
+cat ../network/02a
+echo
+echo
+echo -e "02b"
+cat ../network/02b
+echo
+echo
+echo -e "03"
+cat ../network/03
+echo
+echo
+echo -e "04"
+cat ../network/04
+echo
+echo
+echo -e "05"
+cat ../network/05
+echo
+echo
+echo -e "06"
+cat ../network/06
+echo
+echo
+echo -e "07"
+cat ../network/07
+echo
+echo
+echo -e "08"
+cat ../network/08
+echo
+echo
+echo -e "09"
+cat ../network/09
+echo
+echo
+echo -e "10"
+cat ../network/10
+echo
+echo
+echo -e "11"
+cat ../network/11
+echo
+echo
+echo -e "12"
+cat ../network/12
+echo
+echo
+echo -e "13"
+cat ../network/13
+echo
+echo
+echo -e "14"
+cat ../network/14
+echo
+echo
+echo -e "15"
+cat ../network/15
+echo
+echo -e "${Color_Off}"
+;;
+
+"System" | "system" )
+echo -e "${Green}01"
+cat ../system/01
+echo
+echo
+echo -e "02"
+cat ../system/02
+echo
+echo
+echo -e "03"
+cat ../system/03
+echo
+echo
+echo -e "04"
+cat ../system/04
+echo
+echo
+echo -e "05"
+cat ../system/05
+echo
+echo
+echo -e "06"
+cat ../system/06
+echo
+echo
+echo -e "07"
+cat ../system/07
+echo
+echo
+echo -e "08"
+cat ../system/08
+echo
+echo
+echo -e "09"
+cat ../system/09
+echo
+echo
+echo -e "10"
+cat ../system/10
+echo
+echo
+echo -e "11"
+cat ../system/11
+echo
+echo
+echo -e "12"
+cat ../system/12
+echo
+echo
+echo -e "13"
+cat ../system/13
+echo
+echo
+echo -e "14"
+cat ../system/14
+echo
+echo
+echo -e "15"
+cat ../system/15
+echo
+echo
+echo -e "16"
+cat ../system/16
+echo
+echo
+echo -e "17"
+cat ../system/17
+echo
+echo
+echo -e "18"
+cat ../system/18
+echo
+echo
+echo -e "19"
+cat ../system/19
+echo
+echo
+echo -e "20"
+cat ../system/20
+echo
+echo
+echo -e "21"
+cat ../system/21
+echo
+echo
+echo -e "22"
+cat ../system/22
+echo
+echo
+echo -e "23"
+cat ../system/23
+echo
+echo
+echo -e "24"
+cat ../system/24
+echo
+echo -e "${Color_Off}"
+;;
+
+* )
+echo -e "${Yellow}Network"
+echo -e "01  02a  02b  03  04  05  06  07"
+echo -e "08  09   10   11  12  13  15${Color_Off}"
+echo
+echo
+echo -e "${Green}System"
+echo -e "01  02  03  04  05  06  07  08  09  10  11  12"
+echo -e "13  14  15  16  17  18  19  20  21  22  23  24${Color_Off}"
+echo
+echo -e "${UCyan}Type exit to exit${Color_Off}"
+echo
+;;
+
+esac
+done
