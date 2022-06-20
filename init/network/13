@@ -1,5 +1,4 @@
-#Thanks to the previous question and the reverse DNS find the name of your host.
-
-#ipconfig getifaddr en0 | nslookup
+Use
+ipconfig getifaddr en0 | nslookup
 
 Depending on your computer at school: c3r1p1.hive.fi.

@@ -1,3 +1,1 @@
-#Identify broadcast address
-
 ifconfig en0 | awk '/broadcast/ {print $6}'

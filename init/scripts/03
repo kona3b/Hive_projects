@@ -82,22 +82,21 @@ echo -e "|   ${BIRed}WELCOME${Color_Off}   |"
 echo -e "|      ${BIRed}TO${Color_Off}     |"
 echo -e "|     ${BIRed}THE${Color_Off}     |"
 echo -e "|  ${BIRed}Script 03${Color_Off}  |"
-echo -e "|     ${BIBlack}AKA${Color_Off}     |"
-echo -e "|  ${BIRed}The tester${Color_Off} |"
 echo -e "-:-:-:-:-:-:-:-"
 echo
 echo
-echo -e "${BIPurple}Choose what to test!${Color_Off}"
+echo -e "${BIPurple}Choose what to do!${Color_Off}"
 echo
-echo -e "${Purple}(Type the name of the section to "
-echo -e "${Purple}to see questions and answers)"
+echo -e "${Purple}Type the name or number of the section to see the advance"
+echo TYPE HERE! who whoami date pwd ls exit
+echo -e "${Purple}Type the name or number of the section to see the answers"
 echo
-echo -e "${Yellow}Network"
+echo -e "${Yellow}1 - Network"
 echo -e "01  02a  02b  03  04  05  06  07"
 echo -e "08  09   10   11  12  13  15${Color_Off}"
 echo
 echo
-echo -e "${Green}System"
+echo -e "${Green}2 - System"
 echo -e "01  02  03  04  05  06  07  08  09  10  11  12"
 echo -e "13  14  15  16  17  18  19  20  21  22  23  24${Color_Off}"
 echo

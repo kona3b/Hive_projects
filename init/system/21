@@ -1,3 +1,1 @@
-#List all real users on the VM
-
-getent passwd {1000..60000} | cut -d : -f 1
+awk -F: '999<$3 && $3<60000 {print $1}' /etc/passwd

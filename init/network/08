@@ -1,5 +1,3 @@
-#Find the provider of who.int
-
 You can use "ping who.int" to find out ip address. Checking ip address in the internet (https://who.is/ for an example) gives you the provider:
 
 Cloudflare, Inc
