@@ -19,12 +19,8 @@ if [ "$username" == "exit" ]; then
 		exit 1
 fi
 if [ "$check" != "$NULL" ]; then
-		if [ "$check" == "root" ]; then
-			echo "You can't delete root, choose another user next time"
-		else
-			sudo userdel -rf $username
-			echo "User deleted"
-		fi
+		sudo userdel -rf $username
+		echo "User deleted"
 else
 	echo "User doesn't exist"
 fi
