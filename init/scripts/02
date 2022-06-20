@@ -19,8 +19,8 @@ if [ "$username" == "exit" ]; then
 		exit 1
 fi
 if [ "$check" != "$NULL" ]; then
-		if [ "$check" == "$me" || "$check" == "root" ]; then
-			echo "You can't delete yourself or root, choose another user next time"
+		if [ "$check" == "root" ]; then
+			echo "You can't delete root, choose another user next time"
 		else
 			sudo userdel -rf $username
 			echo "User deleted"
