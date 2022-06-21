@@ -1,3 +1,5 @@
+ifconfig en0 | awk '/broadcast/ {print $6}'
+
 ipaddr=$(ifconfig en0 | awk '/broadcast/ {print $6}')
 ipaddr=$(echo $ipaddr | cut -d '.' -f1-2)
 arp -a | cut -d ' ' -f2 | grep $ipaddr
