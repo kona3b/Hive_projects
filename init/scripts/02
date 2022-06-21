@@ -6,7 +6,7 @@ echo "-----------------------------------"
 echo "Welcome to deleting an active user!"
 echo ""
 echo "These are the users:"
-echo $users
+awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd
 echo ""
 echo "Write the name of the user you wish to delete or write exit to exit"
 read username
