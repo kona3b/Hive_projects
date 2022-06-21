@@ -13,7 +13,7 @@ read username
 echo ""
 
 
-check=$(getent passwd {1000..60000} | cut -d : -f 1 | grep -w $username)
+check=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | grep -w $username)
 if [ "$username" == "exit" ]; then
 		echo "Exiting, bye!"
 		exit 1
